@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
       integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
       crossorigin=""/>
-    <!-- geoapify css  -->
-    <link rel="stylesheet" href="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.css" />
 
     <!-- js block-->
     <!-- leaflet js -->
@@ -18,24 +16,16 @@
       integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
       crossorigin=""></script>
       
-    <!-- TEST leflet-control-geocoder -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-
-    <!-- Geoapify js -->
-    <script src="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.js"></script>
+    <!-- TEST leflet-control-geocoder  TESTING USING THE DOWLOADED FOLDERS RIGHT NOW CDN WILL BE COMMENTED OUT-->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" /> -->
+    <link rel="stylesheet" href="Control.Geocoder.css" />
+    <!-- <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script> -->
+    <script src="leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 
     <!-- Turf booleanPointInPolygon js  -->
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
   
-    <!-- Leaflet Geosearch CDN CSS then js -->
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
-    />
-    <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
-
-
+<!-- new api key for google AIzaSyAkYLkNcozn6vdqps5Pc0-ZNfIcawiavVg  -->
 
 
 
@@ -45,10 +35,26 @@
   <body>
     <div id="map"></div>
 
+    <p1>
+      Hello! This is the creator of the app speaking. <br/> This tool is designed to help UW Tacoma Students and Tacoma residents figure out if they are eligable for the CMC internet or computer
+      subsidy based on your location. <br/> All you have to do is <b><u> put in or physically click your address or a nearby location </u></b> , and the app will tell you if you are eligible in the bottom right.
+      <br/> If you have any issues with the app or need help feel free to email me at daelengates@gmail.com
+    </p1>
+    <p2><br/> <br/>
+      Leaflet plugins used and how: <br/>
+      Leaflet 1.9.2---
+      Used to create the mapping interface
+      <br/>Leaflet-control-geocoder---
+      Allows the user to put in an address and it finds the coordinates of its location so a marker can be placed there and it can be tested for if its inside a eligible census tract.
+      <br/>Turf.min.js---
+      This is used for its booleanPointInPolygon tool which tells me if the coordinate 
+    </p2>
+
     <!-- Load in the census tracts Geojson  -->
     <script type="text/javascript" src="Join_Shp.js"></script>
     
     <!-- js -->
     <script type="module" src="scripts.js"></script>
+
   </body>
 </html>
