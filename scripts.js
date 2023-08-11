@@ -39,7 +39,7 @@ var tracts = L.geoJSON(tract, {
   onEachFeature: function (feature, layer) {
     layer.on('mouseover', function () {
       // console.log(feature.properties.TRACTCE);
-      createTextBoxControl2(feature.properties.TRACTCE);
+      createTextBoxControl2("Census Tract#: " + feature.properties.TRACTCE);
     });
     layer.on('mouseout', function () {
       textBoxControl2.remove();
