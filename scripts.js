@@ -37,8 +37,12 @@ var tracts = L.geoJSON(tract, {
   PointToLayer: function(feature, latlng){
   },
   onEachFeature: function (feature, layer) {
-    layer.on('click', function () {
-      console.log(feature.properties.TRACTCE);
+    layer.on('mouseover', function () {
+      // console.log(feature.properties.TRACTCE);
+      createTextBoxControl2(feature.properties.TRACTCE);
+    });
+    layer.on('mouseout', function () {
+      textBoxControl2.remove();
     });
   }
 }).addTo(map);
@@ -185,6 +189,31 @@ function createTextBoxControl(content) {
   textBoxControl.addTo(map);
 }
 
+// Here is where the 2nd Text box control will be set that will show census tract when hovered over 
+// Define the text box control outside the click event handler this allows me to pass the function inside my click event listener and the geosearch
+var textBoxControl2;
+
+// Creates the text box control function, this is used above to tell the user if they are eligbable or not.
+function createTextBoxControl2(content) {
+  // Removes the existing text box control if it exists
+  if (textBoxControl2) {
+    textBoxControl2.remove();
+  }
+
+  // Create the new text box control
+  textBoxControl2 = L.control({ position: 'bottomleft' });
+
+  // Define the content of the text box
+  textBoxControl2.onAdd = function(map) {
+    var textBox = L.DomUtil.create('div', 'text-box');
+    textBox.innerHTML = content;
+
+    return textBox;
+  };
+
+  // Add the text box control to the map
+  textBoxControl2.addTo(map);
+}
 
 // function updateLatLng(lat,lng) {
 // document.getElementById('latitude').value = marker.getLatLng().lat;
